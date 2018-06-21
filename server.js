@@ -1,7 +1,7 @@
 var express = require('express');
 var socket = require('socket.io')
 var app = express();
-
+var port = process.env.PORT || 2000
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
 
@@ -9,8 +9,8 @@ app.get('/',function(req,res){
     res.render('index')
 })
 
-var server = app.listen(3000, function(){
-    console.log('Running on Port: 3000')
+var server = app.listen(port, function(){
+    console.log('Running on Port: ' + port)
 });
 var io = socket(server);
 
